@@ -8,26 +8,26 @@ const links = [
   {
     icon: Mail,
     label: "Email",
-    href: "mailto:namrathachowdary@example.com",
-    text: "namrathachowdary@example.com",
+    href: "mailto:namrathachowdarygundapuneedi@gmail.com",
+    text: "namrathachowdarygundapuneedi@gmail.com",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
-    href: "https://linkedin.com/in/",
-    text: "linkedin.com/in/namratha",
+    href: "https://www.linkedin.com/in/namratha-chowdary-gundapuneedi",
+    text: "linkedin.com/in/namratha-chowdary-gundapuneedi",
   },
   {
     icon: Github,
     label: "GitHub",
-    href: "https://github.com/",
-    text: "github.com/namratha",
+    href: "https://github.com/Namratha1450",
+    text: "github.com/Namratha1450",
   },
   {
     icon: Code2,
     label: "CodeChef",
-    href: "https://www.codechef.com/users/",
-    text: "codechef.com/namratha",
+    href: "https://www.codechef.com/users/namratha1450",
+    text: "codechef.com/users/namratha1450",
   },
 ]
 
@@ -43,7 +43,7 @@ export function ContactSection() {
   return (
     <AnimatedSection id="contact">
       <SectionTitle>Contact</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto text-left">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl">
         {/* Links */}
         <div className="anim-item flex flex-col gap-3">
           {links.map((link) => (
@@ -52,14 +52,14 @@ export function ContactSection() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 group"
+              className="flex items-center gap-3 group text-left"
             >
-              <div className="w-9 h-9 rounded-md bg-secondary flex items-center justify-center group-hover:bg-[#1E90FF22] transition-colors group-hover:shadow-[0_0_16px_#1E90FF33] border border-border">
+              <div className="w-9 h-9 rounded-md bg-secondary flex items-center justify-center group-hover:bg-[#1E90FF22] transition-colors group-hover:shadow-[0_0_16px_#1E90FF33] border border-border flex-shrink-0">
                 <link.icon size={16} className="text-[#1E90FF]" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="text-xs text-muted-foreground">{link.label}</p>
-                <p className="text-sm text-foreground group-hover:text-[#00BFFF] transition-colors">
+                <p className="text-sm text-foreground group-hover:text-[#00BFFF] transition-colors truncate">
                   {link.text}
                 </p>
               </div>

@@ -75,8 +75,8 @@ html {
 /* ── Animations ── */
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(30px) scale(0.98); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slide-in-left {
@@ -98,11 +98,6 @@ html {
 @keyframes shine-sweep {
   0% { left: -75%; }
   100% { left: 125%; }
-}
-
-@keyframes glow-border-pulse {
-  0%, 100% { border-color: #1a234066; box-shadow: none; }
-  50% { border-color: #1E90FF44; box-shadow: 0 0 12px #1E90FF22; }
 }
 
 .animate-fade-up {
@@ -136,12 +131,22 @@ html {
   pointer-events: none;
 }
 
-/* ── Glow cards with shine sweep ── */
+/* ── Glow cards: FULL BOX GLOW on hover with shine sweep ── */
 .glow-card {
   position: relative;
   overflow: hidden;
-  transition: all 0.35s ease;
-  border: 1px solid #1a234066;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #1a234055;
+}
+.glow-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, #1E90FF08, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 0;
 }
 .glow-card::after {
   content: '';
@@ -150,20 +155,31 @@ html {
   left: -75%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, #1E90FF15, transparent);
+  background: linear-gradient(90deg, transparent, #1E90FF10, transparent);
   transform: skewX(-20deg);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s;
+  z-index: 1;
 }
 .glow-card:hover {
-  border-color: #1E90FF66;
-  box-shadow: 0 0 30px #1E90FF33, 0 8px 32px #00000088;
-  transform: translateY(-3px) scale(1.01);
+  border-color: #1E90FF55;
+  box-shadow:
+    0 0 24px 4px #1E90FF22,
+    0 0 48px 8px #1E90FF11,
+    0 8px 32px #00000066;
+  transform: translateY(-3px);
+}
+.glow-card:hover::before {
+  opacity: 1;
 }
 .glow-card:hover::after {
   opacity: 1;
   animation: shine-sweep 0.7s ease forwards;
+}
+.glow-card > * {
+  position: relative;
+  z-index: 2;
 }
 
 /* ── Glow pills ── */
@@ -193,38 +209,23 @@ html {
   background-clip: text;
 }
 
-/* ── Timeline ── */
-.timeline-line {
-  position: relative;
-}
-.timeline-line::before {
-  content: '';
-  position: absolute;
-  left: 7px;
-  top: 24px;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, #1E90FF55, #1E90FF11, transparent);
-  box-shadow: 0 0 8px #1E90FF22;
-}
-.timeline-dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #05070D;
-  border: 2px solid #1E90FF;
-  box-shadow: 0 0 12px #1E90FF44;
-  flex-shrink: 0;
-}
-
-/* ── Skill tilt card ── */
+/* ── Skill tilt card: FULL BOX GLOW + 3D tilt ── */
 .skill-tilt {
   position: relative;
   overflow: hidden;
-  transition: all 0.35s ease;
-  border: 1px solid #1a234066;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #1a234055;
   transform-style: preserve-3d;
-  perspective: 800px;
+}
+.skill-tilt::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, #1E90FF08, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 0;
 }
 .skill-tilt::after {
   content: '';
@@ -233,20 +234,31 @@ html {
   left: -75%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, #1E90FF12, transparent);
+  background: linear-gradient(90deg, transparent, #1E90FF10, transparent);
   transform: skewX(-20deg);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s;
+  z-index: 1;
 }
 .skill-tilt:hover {
-  border-color: #1E90FF66;
-  box-shadow: 0 0 24px #1E90FF33, 0 4px 20px #00000066;
+  border-color: #1E90FF55;
+  box-shadow:
+    0 0 24px 4px #1E90FF22,
+    0 0 48px 8px #1E90FF11,
+    0 8px 32px #00000066;
   transform: perspective(800px) rotateX(-2deg) rotateY(3deg) translateY(-3px);
+}
+.skill-tilt:hover::before {
+  opacity: 1;
 }
 .skill-tilt:hover::after {
   opacity: 1;
   animation: shine-sweep 0.7s ease forwards;
+}
+.skill-tilt > * {
+  position: relative;
+  z-index: 2;
 }
 
 /* ── Resume button shine ── */
@@ -272,7 +284,7 @@ html {
   animation: shine-sweep 0.6s ease forwards;
 }
 
-/* ── Glow interactive border pulse on focus ── */
+/* ── Glow focus for inputs ── */
 .glow-focus {
   transition: all 0.3s ease;
 }

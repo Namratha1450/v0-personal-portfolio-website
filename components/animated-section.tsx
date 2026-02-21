@@ -36,15 +36,15 @@ export function AnimatedSection({
   }, [])
 
   return (
-    <section ref={ref} id={id} className={`py-8 ${className}`}>
-      <div className="mx-auto max-w-4xl px-5 text-center">{children}</div>
+    <section ref={ref} id={id} className={`py-7 ${className}`}>
+      <div className="mx-auto max-w-4xl px-6">{children}</div>
     </section>
   )
 }
 
 export function SectionTitle({ children }: { children: ReactNode }) {
   return (
-    <h2 className="anim-item text-2xl sm:text-3xl font-bold mb-5 tracking-tight">
+    <h2 className="anim-item text-2xl sm:text-3xl font-bold mb-5 tracking-tight text-left">
       <span className="blue-gradient-text">{children}</span>
     </h2>
   )

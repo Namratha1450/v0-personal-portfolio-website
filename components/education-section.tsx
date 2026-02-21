@@ -1,4 +1,5 @@
 import { AnimatedSection, SectionTitle } from "./animated-section"
+import { GraduationCap } from "lucide-react"
 
 const education = [
   {
@@ -25,24 +26,26 @@ export function EducationSection() {
   return (
     <AnimatedSection id="education">
       <SectionTitle>Education</SectionTitle>
-      <div className="inline-flex flex-col text-left">
+      <div className="flex flex-col gap-3 max-w-2xl">
         {education.map((item, i) => (
           <div
             key={i}
-            className={`anim-item flex gap-4 pb-4 ${
-              i < education.length - 1 ? "timeline-line" : ""
-            }`}
+            className="anim-item glow-card rounded-lg px-5 py-4 bg-card text-left"
           >
-            <div className="timeline-dot mt-1" />
-            <div>
-              <h3 className="text-sm sm:text-base font-semibold text-foreground">{item.title}</h3>
-              {item.institution && (
-                <p className="text-xs sm:text-sm text-muted-foreground">{item.institution}</p>
-              )}
-              {item.year && (
-                <p className="text-xs sm:text-sm text-[#1E90FF] mt-0.5">{item.year}</p>
-              )}
-              <p className="text-xs sm:text-sm text-[#00BFFF] font-medium mt-0.5">{item.score}</p>
+            <div className="flex items-start gap-3">
+              <div className="w-9 h-9 rounded-md bg-secondary flex items-center justify-center border border-border flex-shrink-0 mt-0.5">
+                <GraduationCap size={16} className="text-[#1E90FF]" />
+              </div>
+              <div>
+                <h3 className="text-sm sm:text-base font-semibold text-foreground">{item.title}</h3>
+                {item.institution && (
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">{item.institution}</p>
+                )}
+                {item.year && (
+                  <p className="text-xs sm:text-sm text-[#1E90FF] mt-0.5">{item.year}</p>
+                )}
+                <p className="text-xs sm:text-sm text-[#00BFFF] font-medium mt-0.5">{item.score}</p>
+              </div>
             </div>
           </div>
         ))}

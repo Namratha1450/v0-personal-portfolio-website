@@ -11,7 +11,7 @@ export function HeroSection() {
     els?.forEach((el, i) => {
       const htmlEl = el as HTMLElement
       htmlEl.style.animationDelay = `${i * 0.15}s`
-      htmlEl.classList.add("animate-slide-left")
+      htmlEl.classList.add("animate-fade-up")
     })
   }, [])
 
@@ -19,7 +19,7 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-[85vh] flex items-center justify-center pt-14 overflow-hidden"
+      className="relative min-h-[85vh] flex items-center pt-14 overflow-hidden"
     >
       {/* Animated wave background */}
       <div
@@ -33,12 +33,12 @@ export function HeroSection() {
       {/* Rotating radial glow */}
       <div className="hero-radial-glow" />
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto max-w-4xl w-full px-5 py-10 text-center">
+      {/* Content - slightly left aligned inside centered container */}
+      <div className="relative z-10 mx-auto max-w-4xl w-full px-6 py-10">
         <p className="hero-animate text-sm tracking-[0.3em] uppercase text-muted-foreground mb-3 font-mono">
           Portfolio
         </p>
-        <h1 className="hero-animate text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-4">
+        <h1 className="hero-animate text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-4 text-balance">
           <span className="text-foreground">NAMRATHA CHOWDARY</span>
           <br />
           <span className="blue-gradient-text">GUNDAPUNEEDI</span>
@@ -50,7 +50,7 @@ export function HeroSection() {
           Transforming Data into Strategic Insights
         </p>
 
-        <div className="hero-animate flex flex-wrap items-center justify-center gap-3">
+        <div className="hero-animate flex flex-wrap items-center gap-3">
           <a
             href="https://drive.google.com/file/d/1-ls7ca1_MbDnDlh6tQr567H066RcKzf0/view?usp=drive_link"
             target="_blank"
