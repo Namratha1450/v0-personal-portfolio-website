@@ -29,7 +29,7 @@ export function Navbar() {
         scrolled ? "glass-nav shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="mx-auto max-w-5xl flex items-center justify-between px-5 py-2.5">
+      <div className="mx-auto max-w-4xl flex items-center justify-between px-5 py-2.5">
         <button
           onClick={() => handleClick("home")}
           className="text-xl font-bold tracking-wider blue-gradient-text cursor-pointer"

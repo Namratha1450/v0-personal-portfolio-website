@@ -63,58 +63,46 @@
   }
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #05070D;
-}
-::-webkit-scrollbar-thumb {
-  background: #1E90FF33;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #1E90FF66;
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #05070D; }
+::-webkit-scrollbar-thumb { background: #1E90FF33; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #1E90FF66; }
 
-/* Glow animation */
-@keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 8px #1E90FF22, 0 0 16px #1E90FF11; }
-  50% { box-shadow: 0 0 12px #1E90FF44, 0 0 24px #1E90FF22; }
-}
+/* ── Animations ── */
 
 @keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @keyframes slide-in-left {
-  from {
-    opacity: 0;
-    transform: translateX(-60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-60px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes wave-bg {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+@keyframes radial-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes shine-sweep {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+
+@keyframes glow-border-pulse {
+  0%, 100% { border-color: #1a234066; box-shadow: none; }
+  50% { border-color: #1E90FF44; box-shadow: 0 0 12px #1E90FF22; }
 }
 
 .animate-fade-up {
@@ -132,33 +120,72 @@ html {
   animation: wave-bg 8s ease infinite;
 }
 
-.glow-card {
-  transition: all 0.3s ease;
-  border: 1px solid #1a234066;
-}
-.glow-card:hover {
-  border-color: #1E90FF55;
-  box-shadow: 0 0 20px #1E90FF22, 0 4px 20px #00000066;
-  transform: translateY(-2px) scale(1.01);
+/* ── Rotating radial glow behind hero ── */
+.hero-radial-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  margin-top: -300px;
+  margin-left: -300px;
+  background: conic-gradient(from 0deg, transparent 0%, #1E90FF11 25%, transparent 50%, #00BFFF11 75%, transparent 100%);
+  border-radius: 50%;
+  animation: radial-rotate 12s linear infinite;
+  filter: blur(80px);
+  pointer-events: none;
 }
 
+/* ── Glow cards with shine sweep ── */
+.glow-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  border: 1px solid #1a234066;
+}
+.glow-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #1E90FF15, transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.glow-card:hover {
+  border-color: #1E90FF66;
+  box-shadow: 0 0 30px #1E90FF33, 0 8px 32px #00000088;
+  transform: translateY(-3px) scale(1.01);
+}
+.glow-card:hover::after {
+  opacity: 1;
+  animation: shine-sweep 0.7s ease forwards;
+}
+
+/* ── Glow pills ── */
 .glow-pill {
   transition: all 0.3s ease;
   border: 1px solid #1a234066;
 }
 .glow-pill:hover {
   border-color: #1E90FF55;
-  box-shadow: 0 0 12px #1E90FF22;
-  transform: translateY(-1px);
+  box-shadow: 0 0 16px #1E90FF33;
+  transform: translateY(-2px);
 }
 
+/* ── Glassmorphism nav ── */
 .glass-nav {
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   background: #05070Dcc;
   border-bottom: 1px solid #1a234044;
 }
 
+/* ── Blue gradient text ── */
 .blue-gradient-text {
   background: linear-gradient(135deg, #1E90FF, #00BFFF);
   -webkit-background-clip: text;
@@ -166,6 +193,7 @@ html {
   background-clip: text;
 }
 
+/* ── Timeline ── */
 .timeline-line {
   position: relative;
 }
@@ -176,15 +204,80 @@ html {
   top: 24px;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(to bottom, #1E90FF44, transparent);
+  background: linear-gradient(to bottom, #1E90FF55, #1E90FF11, transparent);
+  box-shadow: 0 0 8px #1E90FF22;
 }
-
 .timeline-dot {
   width: 16px;
   height: 16px;
   border-radius: 50%;
   background: #05070D;
   border: 2px solid #1E90FF;
-  box-shadow: 0 0 8px #1E90FF44;
+  box-shadow: 0 0 12px #1E90FF44;
   flex-shrink: 0;
+}
+
+/* ── Skill tilt card ── */
+.skill-tilt {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  border: 1px solid #1a234066;
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
+.skill-tilt::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #1E90FF12, transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.skill-tilt:hover {
+  border-color: #1E90FF66;
+  box-shadow: 0 0 24px #1E90FF33, 0 4px 20px #00000066;
+  transform: perspective(800px) rotateX(-2deg) rotateY(3deg) translateY(-3px);
+}
+.skill-tilt:hover::after {
+  opacity: 1;
+  animation: shine-sweep 0.7s ease forwards;
+}
+
+/* ── Resume button shine ── */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #ffffff22, transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.btn-shine:hover::after {
+  opacity: 1;
+  animation: shine-sweep 0.6s ease forwards;
+}
+
+/* ── Glow interactive border pulse on focus ── */
+.glow-focus {
+  transition: all 0.3s ease;
+}
+.glow-focus:focus {
+  border-color: #1E90FF !important;
+  box-shadow: 0 0 16px #1E90FF33;
+  outline: none;
 }

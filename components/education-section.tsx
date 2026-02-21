@@ -25,7 +25,7 @@ export function EducationSection() {
   return (
     <AnimatedSection id="education">
       <SectionTitle>Education</SectionTitle>
-      <div className="max-w-2xl space-y-0">
+      <div className="inline-flex flex-col text-left">
         {education.map((item, i) => (
           <div
             key={i}

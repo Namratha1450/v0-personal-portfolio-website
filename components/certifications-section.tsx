@@ -21,7 +21,7 @@ export function CertificationsSection() {
   return (
     <AnimatedSection id="certifications">
       <SectionTitle>Certifications</SectionTitle>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      <div className="inline-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-left">
         {certifications.map((group) => (
           <div key={group.provider} className="anim-item glow-card rounded-lg px-4 py-3 bg-card">
             <div className="flex items-center gap-2 mb-2">

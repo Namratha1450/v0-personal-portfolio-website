@@ -28,7 +28,7 @@ export function InternshipsSection() {
   return (
     <AnimatedSection id="internships">
       <SectionTitle>Internships</SectionTitle>
-      <div className="max-w-2xl space-y-0">
+      <div className="inline-flex flex-col text-left">
         {internships.map((item, i) => (
           <div
             key={i}

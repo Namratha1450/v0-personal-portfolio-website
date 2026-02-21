@@ -13,11 +13,11 @@ export function SoftSkillsSection() {
   return (
     <AnimatedSection id="soft-skills">
       <SectionTitle>Soft Skills</SectionTitle>
-      <div className="flex flex-wrap gap-2.5">
+      <div className="flex flex-wrap justify-center gap-2.5">
         {softSkills.map((skill) => (
           <span
             key={skill}
-            className="anim-item glow-pill text-xs sm:text-sm px-4 py-1.5 rounded-full bg-secondary text-foreground border border-border"
+            className="anim-item glow-pill text-sm px-5 py-2 rounded-full bg-secondary text-foreground border border-border"
           >
             {skill}
           </span>

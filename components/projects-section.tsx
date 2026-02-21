@@ -58,16 +58,15 @@ export function ProjectsSection() {
     <AnimatedSection id="projects">
       <SectionTitle>Projects</SectionTitle>
 
-      <div className="anim-item glow-card rounded-lg bg-card p-5 sm:p-6">
-        <h3 className="text-base sm:text-lg font-bold text-foreground mb-1">
+      <div className="anim-item glow-card rounded-lg bg-card p-5 sm:p-6 text-left max-w-2xl mx-auto">
+        <h3 className="text-base sm:text-lg font-bold text-foreground mb-1 text-center">
           Global Holidays and Travel Trends Dashboard
         </h3>
-        <p className="text-xs sm:text-sm text-muted-foreground mb-5">
+        <p className="text-xs sm:text-sm text-muted-foreground mb-5 text-center">
           A comprehensive Power BI dashboard analyzing global travel patterns and holiday trends
         </p>
 
-        {/* Steps */}
-        <div className="flex flex-col gap-3 mb-5">
+        <div className="flex flex-col gap-3 mb-1">
           {steps.map((step, i) => (
             <div key={step.title} className="flex gap-3 items-start">
               <div className="flex flex-col items-center">
