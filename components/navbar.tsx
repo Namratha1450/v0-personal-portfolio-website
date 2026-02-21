@@ -29,7 +29,7 @@ export function Navbar() {
         scrolled ? "glass-nav shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="mx-auto max-w-6xl flex items-center justify-between px-4 py-3">
+      <div className="mx-auto max-w-5xl flex items-center justify-between px-5 py-2.5">
         <button
           onClick={() => handleClick("home")}
           className="text-xl font-bold tracking-wider blue-gradient-text cursor-pointer"
@@ -38,12 +38,12 @@ export function Navbar() {
         </button>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-0.5">
           {navItems.map((item) => (
             <button
               key={item}
               onClick={() => handleClick(item)}
-              className="px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-[#1E90FF11] cursor-pointer"
+              className="px-2.5 py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-[#1E90FF11] cursor-pointer"
             >
               {item}
             </button>
@@ -62,7 +62,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden glass-nav border-t border-border px-4 py-3">
+        <div className="md:hidden glass-nav border-t border-border px-5 py-3">
           {navItems.map((item) => (
             <button
               key={item}

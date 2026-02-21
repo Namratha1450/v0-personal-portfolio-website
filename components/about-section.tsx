@@ -2,15 +2,13 @@ import { AnimatedSection, SectionTitle } from "./animated-section"
 
 export function AboutSection() {
   return (
-    <AnimatedSection id="about">
+    <AnimatedSection id="about" className="text-center">
       <SectionTitle>About</SectionTitle>
-      <p className="anim-item text-sm leading-relaxed text-muted-foreground max-w-3xl">
-        I am a passionate and detail-oriented B.Tech Computer Science &amp; Engineering student
-        specializing in Data Science at Raghu Engineering College. With a strong foundation in
-        Python, SQL, and data visualization tools like Power BI and Tableau, I focus on transforming
-        raw data into actionable business insights. I am constantly expanding my skill set through
-        certifications and internships, aiming to build a career as a Data Analyst who bridges the
-        gap between complex data and strategic decision-making.
+      <p className="anim-item text-sm sm:text-base leading-relaxed text-muted-foreground max-w-3xl mx-auto">
+        Highly motivated Data Science undergraduate with strong analytical skills in Python, SQL,
+        and Data Visualization. Passionate about transforming raw data into meaningful business
+        insights. Currently maintaining a CGPA of 9.07 and actively seeking opportunities to apply
+        technical expertise in real-world environments.
       </p>
     </AnimatedSection>
   )
