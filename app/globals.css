@@ -1,0 +1,190 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #05070D;
+  --foreground: #ffffff;
+  --card: #0a0e1a;
+  --card-foreground: #ffffff;
+  --popover: #0a0e1a;
+  --popover-foreground: #ffffff;
+  --primary: #1E90FF;
+  --primary-foreground: #ffffff;
+  --secondary: #0d1220;
+  --secondary-foreground: #ffffff;
+  --muted: #0d1220;
+  --muted-foreground: #8a9bb5;
+  --accent: #00BFFF;
+  --accent-foreground: #ffffff;
+  --destructive: #ff4444;
+  --destructive-foreground: #ffffff;
+  --border: #1a2340;
+  --input: #1a2340;
+  --ring: #1E90FF;
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Geist', 'Geist Fallback', sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #05070D;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E90FF33;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1E90FF66;
+}
+
+/* Glow animation */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 8px #1E90FF22, 0 0 16px #1E90FF11; }
+  50% { box-shadow: 0 0 12px #1E90FF44, 0 0 24px #1E90FF22; }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes wave-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slide-left {
+  animation: slide-in-left 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-wave-bg {
+  background-size: 300% 300%;
+  animation: wave-bg 8s ease infinite;
+}
+
+.glow-card {
+  transition: all 0.3s ease;
+  border: 1px solid #1a234066;
+}
+.glow-card:hover {
+  border-color: #1E90FF55;
+  box-shadow: 0 0 20px #1E90FF22, 0 4px 20px #00000066;
+  transform: translateY(-2px) scale(1.01);
+}
+
+.glow-pill {
+  transition: all 0.3s ease;
+  border: 1px solid #1a234066;
+}
+.glow-pill:hover {
+  border-color: #1E90FF55;
+  box-shadow: 0 0 12px #1E90FF22;
+  transform: translateY(-1px);
+}
+
+.glass-nav {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: #05070Dcc;
+  border-bottom: 1px solid #1a234044;
+}
+
+.blue-gradient-text {
+  background: linear-gradient(135deg, #1E90FF, #00BFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.timeline-line {
+  position: relative;
+}
+.timeline-line::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 24px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #1E90FF44, transparent);
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #05070D;
+  border: 2px solid #1E90FF;
+  box-shadow: 0 0 8px #1E90FF44;
+  flex-shrink: 0;
+}
