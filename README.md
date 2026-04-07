@@ -7,7 +7,7 @@ This website showcases my **skills, projects, education, internships, and certif
 
 ## 📸 Preview
 
-![Portfolio Screenshot](https://via.placeholder.com/1000x500?text=Portfolio+Preview)
+![Portfolio Screenshot](./portfolio.png)
 
 ---
 
