@@ -24,7 +24,6 @@ I am a **B.Tech Computer Science (Data Science)** student passionate about solvi
 I specialize in **Python, SQL, and Data Visualization** and aim to transform raw data into meaningful insights.
 
 ---
-
 ## 🛠️ Tech Stack
 
 * **Frontend:** Next.js, TypeScript
