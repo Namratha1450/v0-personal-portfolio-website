@@ -33,13 +33,4 @@ const skillCategories = [
       "VS Code",
     ],
   },
-  {
-    label: "Soft Skills",
-    skills: [
-      "Problem Solving",
-      "Communication",
-      "Team Collaboration",
-      "Critical Thinking",
-    ],
-  },
 ]
