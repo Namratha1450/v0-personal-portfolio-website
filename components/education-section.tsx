@@ -6,7 +6,7 @@ const education = [
     title: "B.Tech CSE (Data Science)",
     institution: "Raghu Engineering College",
     year: "2023 - 2027",
-    score: "CGPA: 9.07",
+    score: "CGPA: 9.05",
   },
   {
     title: "Intermediate - MPC",
