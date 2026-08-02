@@ -1,110 +1,90 @@
-import { AnimatedSection, SectionTitle } from "./animated-section"
-import {
-  BarChart3,
-  Map,
-  PieChart,
-  TrendingUp,
-  SlidersHorizontal,
-  Lightbulb,
-  Database,
-  Wrench,
-  LayoutDashboard,
-  Sparkles,
-  Eye,
-} from "lucide-react"
+<div className="space-y-6 max-w-3xl">
 
-const steps = [
-  {
-    icon: Database,
-    title: "Dataset Collection",
-    items: ["Collected global holiday & travel dataset"],
-  },
-  {
-    icon: Wrench,
-    title: "Data Cleaning & Preprocessing",
-    items: ["Removed null values", "Structured formatting", "Data transformation"],
-  },
-  {
-    icon: LayoutDashboard,
-    title: "Dashboard Development (Power BI)",
-    items: [],
-  },
-  {
-    icon: Sparkles,
-    title: "Interactive Features",
-    items: ["Filters", "Dynamic slicers", "Monthly trend analysis"],
-  },
-  {
-    icon: Eye,
-    title: "Insights",
-    items: ["Peak travel months", "Regional holiday patterns", "Business intelligence insights"],
-  },
-]
+  {/* Project 1 */}
+  <div className="anim-item glow-card rounded-lg bg-card p-5 sm:p-6 text-left">
+    <h3 className="text-base sm:text-lg font-bold text-foreground mb-2">
+      🛒 Retail Shelf Object Detection using YOLOv5
+    </h3>
 
-const visualizations = [
-  { icon: Map, label: "Geographic Map" },
-  { icon: BarChart3, label: "Bar Chart" },
-  { icon: TrendingUp, label: "Line Chart" },
-  { icon: PieChart, label: "Pie Chart" },
-  { icon: SlidersHorizontal, label: "Heatmap" },
-  { icon: PieChart, label: "Donut Chart" },
-  { icon: Lightbulb, label: "KPI Cards" },
-]
+    <p className="text-xs sm:text-sm text-muted-foreground mb-3">
+      Developed an object detection system for smart retail shelves using YOLOv5.
+    </p>
 
-export function ProjectsSection() {
-  return (
-    <AnimatedSection id="projects">
-      <SectionTitle>Projects</SectionTitle>
+    <div className="flex flex-wrap gap-2 mb-3">
+      {["Python","YOLOv5","PyTorch","OpenCV","Google Colab"].map((tech)=>(
+        <span
+          key={tech}
+          className="text-xs px-2.5 py-1 rounded-full bg-secondary text-muted-foreground border border-border"
+        >
+          {tech}
+        </span>
+      ))}
+    </div>
 
-      <div className="anim-item glow-card rounded-lg bg-card p-5 sm:p-6 text-left max-w-2xl">
-        <h3 className="text-base sm:text-lg font-bold text-foreground mb-1">
-          Global Holidays and Travel Trends Dashboard
-        </h3>
-        <p className="text-xs sm:text-sm text-muted-foreground mb-5">
-          A comprehensive Power BI dashboard analyzing global travel patterns and holiday trends
-        </p>
+    <ul className="space-y-1 text-xs sm:text-sm text-muted-foreground">
+      <li>• Developed an object detection model for retail shelf products.</li>
+      <li>• Performed image annotation and dataset labeling.</li>
+      <li>• Trained and validated the YOLOv5 model.</li>
+      <li>• Achieved 92.3% detection accuracy.</li>
+    </ul>
+  </div>
 
-        <div className="flex flex-col gap-3 mb-1">
-          {steps.map((step, i) => (
-            <div key={step.title} className="flex gap-3 items-start">
-              <div className="flex flex-col items-center">
-                <div className="w-8 h-8 rounded-md bg-secondary flex items-center justify-center border border-border flex-shrink-0">
-                  <step.icon size={14} className="text-[#1E90FF]" />
-                </div>
-                {i < steps.length - 1 && (
-                  <div className="w-px h-full min-h-[8px] bg-gradient-to-b from-[#1E90FF44] to-transparent" />
-                )}
-              </div>
-              <div className="pb-1">
-                <h4 className="text-sm sm:text-base font-semibold text-foreground">{step.title}</h4>
-                {step.items.length > 0 && (
-                  <ul className="mt-1 flex flex-col gap-0.5">
-                    {step.items.map((item) => (
-                      <li key={item} className="text-xs sm:text-sm text-muted-foreground flex items-center gap-1.5">
-                        <span className="w-1 h-1 rounded-full bg-[#00BFFF] flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                {step.title.includes("Dashboard") && (
-                  <div className="mt-2 flex flex-wrap gap-1.5">
-                    {visualizations.map((viz) => (
-                      <span
-                        key={viz.label}
-                        className="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full bg-secondary text-muted-foreground border border-border"
-                      >
-                        <viz.icon size={10} className="text-[#00BFFF]" />
-                        {viz.label}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </AnimatedSection>
-  )
-}
+  {/* Project 2 */}
+  <div className="anim-item glow-card rounded-lg bg-card p-5 sm:p-6 text-left">
+    <h3 className="text-base sm:text-lg font-bold text-foreground mb-2">
+      ❤️ Healthy Lifestyle System
+    </h3>
+
+    <p className="text-xs sm:text-sm text-muted-foreground mb-3">
+      Machine learning based health monitoring and lifestyle analysis system.
+    </p>
+
+    <div className="flex flex-wrap gap-2 mb-3">
+      {["Python","Pandas","NumPy","Matplotlib","Plotly","Seaborn"].map((tech)=>(
+        <span
+          key={tech}
+          className="text-xs px-2.5 py-1 rounded-full bg-secondary text-muted-foreground border border-border"
+        >
+          {tech}
+        </span>
+      ))}
+    </div>
+
+    <ul className="space-y-1 text-xs sm:text-sm text-muted-foreground">
+      <li>• Built an ML-based health monitoring system.</li>
+      <li>• Predicted BMI and health metrics.</li>
+      <li>• Created interactive visualizations using Plotly.</li>
+      <li>• Generated health insights using data analysis.</li>
+    </ul>
+  </div>
+
+  {/* Project 3 */}
+  <div className="anim-item glow-card rounded-lg bg-card p-5 sm:p-6 text-left">
+    <h3 className="text-base sm:text-lg font-bold text-foreground mb-2">
+      🌍 Interactive Global Tourism Analytics Dashboard
+    </h3>
+
+    <p className="text-xs sm:text-sm text-muted-foreground mb-3">
+      Interactive Power BI dashboard for analyzing tourism trends and travel insights.
+    </p>
+
+    <div className="flex flex-wrap gap-2 mb-3">
+      {["Power BI","Power Query","Excel","GitHub"].map((tech)=>(
+        <span
+          key={tech}
+          className="text-xs px-2.5 py-1 rounded-full bg-secondary text-muted-foreground border border-border"
+        >
+          {tech}
+        </span>
+      ))}
+    </div>
+
+    <ul className="space-y-1 text-xs sm:text-sm text-muted-foreground">
+      <li>• Collected and cleaned tourism datasets.</li>
+      <li>• Built interactive Power BI dashboards.</li>
+      <li>• Analyzed tourism trends and travel patterns.</li>
+      <li>• Generated business insights using data visualization.</li>
+    </ul>
+  </div>
+
+</div>
